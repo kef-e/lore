@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lore kefe</title>
+
+   <link rel="icon" href="img.png">
+   <link rel="stylesheet" href="style.css">
+   
+ 
+</head>
+<body onload="setup()">
+    <h1>kefe</h1>
+
+    <div class="video">
+        <video width="320" height="180"  controls autoplay muted loop>
+        <source src="video01.mp4" type="video/mp4">
+        Tu navegador no soporta la reproducción de videos.
+        </video>
+    </div>
+    <div class="galeria" id="galeria">
+        <a href="https://www.youtube.com/watch?v=jgVkRdDIpDw&list=RDjgVkRdDIpDw&start_radio=1" target="_blank" class="flotante"><img src="img01.png" alt="Imagen 1"></a>
+        <a href="https://www.ea.com/es-es/games/plants-vs-zombies" target="_blank"class="flotante"><img src="img02.png" alt="Imagen 2"></a>
+        <a href="https://www.youtube.com/watch?v=J6VYKkWYn9E&t=1338s" target="_blank" class="flotante"><img src="img0.jpg" alt="Imagen 3"></a>
+        <a href="https://www.pokemon.com/es/pokedex/eevee" target="_blank" class="flotante"><img src="img04.png" alt="Imagen 4"></a>
+        <a href="https://www.youtube.com/watch?v=9TRemrRaPjc" target="_blank" class="flotante"><img src="img05.png" alt="Imagen 5"></a>
+        <a href="https://www.pokemon.com/es/pokedex/glaceon" target="_blank" class="flotante"><img src="img06.png" alt="Imagen 6"></a>
+        <a href="https://www.pokemon.com/es/pokedex/jolteon" target="_blank" class="flotante"><img src="img07.png" alt="Imagen 7"></a>
+        <a href="https://www.youtube.com/watch?v=iipCflvw4Ww" target="_blank" class="flotante"><img src="img08.png" alt="Imagen 8"></a>
+    </div>
+    <div class="socials">
+				<a href="https://www.instagram.com/s.a.d_bi.tch/" target="_blank" ><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt=""></a>		
+				<a href="https://twitter.com/saramalacara_" target="_blank" ><img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/Tiktok_icon.svg" alt=""></a>
+	</div>
+    <div id="soloPC">Este contenido es solo para personas de internet</div>
+    <div id="soloMobile" style="display: none;">Este contenido es solo para personas de internet</div>
+
+ <script>
+  function moverAleatorio(img) {
+    const pantallaAncho = window.innerWidth;
+    const pantallaAlto = window.innerHeight;
+
+    setInterval(() => {
+      const nuevaX = Math.random() * (pantallaAncho - img.offsetWidth);
+      const nuevaY = Math.random() * (pantallaAlto - img.offsetHeight);
+      img.style.left = nuevaX + 'px';
+      img.style.top = nuevaY + 'px';
+    }, 1000); // cada 1 segundo
+  }
+
+  function setup() {
+    iniciarReordenamiento();
+
+    const imagenes = document.querySelectorAll('.flotante');
+    imagenes.forEach(img => moverAleatorio(img));
+
+    detectarDispositivo();
+  }
+
+  function iniciarReordenamiento() {
+    setInterval(() => {
+      const galeria = document.getElementById("galeria");
+      const imagenes = Array.from(galeria.children);
+      imagenes.sort(() => Math.random() - 0.5);
+      galeria.innerHTML = "";
+      imagenes.forEach(img => galeria.appendChild(img));
+    }, 1000);
+  }
+
+  function detectarDispositivo() {
+    const esMovil = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+    if (esMovil) {
+      document.getElementById("soloPC").style.display = "none";
+      document.getElementById("soloMobile").style.display = "block";
+    } else {
+      document.getElementById("soloPC").style.display = "block";
+      document.getElementById("soloMobile").style.display = "none";
+    }
+  }
+</script>
+</body>
+</html>

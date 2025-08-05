@@ -1,0 +1,83 @@
+body {
+        font-family: sans-serif;
+        background: black;
+        transition: background 0.3s, color 0.3s;
+        color: white;
+        text-align: center;
+        margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.galeria {
+        top: 0;
+        left: 0;
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        margin: auto;
+        border: 2px dashed #888;
+        overflow: hidden;
+        
+}
+   
+.flotante {
+  position: absolute;
+  width: 100px;
+  height: auto;
+}
+
+.galeria a{
+        text-align: center;
+        display: inline-block;
+}
+    
+
+#galeria.show{
+        visibility: visible;
+}           
+    
+.galeria img {
+        width: 200px;
+        height: auto;
+        border-radius: 10px;
+       
+}
+
+.video {
+        float: right;
+        position: absolute; 
+        top: 10px; 
+        right: 20px; 
+}
+    
+
+#soloPC, #soloMobile {
+        margin-top: 1rem;
+        padding: 1rem;
+        border: 1px dashed #888;
+}
+
+button {
+      padding: 0.5rem 1rem;
+      margin-top: 1rem;
+      cursor: pointer;
+}
+
+.socials {
+        width: 40px;
+        position: relative;
+        float: left;
+        bottom: -580px;
+}
+    
+.socials a{
+        width: 100%;
+        position: relative;
+        display: inline-block;
+        margin-right: 10px;
+}
+
+.socials img {
+        width: 30px;
+}
